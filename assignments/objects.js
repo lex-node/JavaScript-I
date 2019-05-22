@@ -13,22 +13,22 @@
 
 //Intern class contructor
 class Intern {
-  constructor(id, name, email, gender) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-    this.gender = gender;
+    constructor(id, name, email, gender) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.gender = gender;
 
-    //speak method
-    this.speak = function() {
-      return "Hello, my name is " + this.name + "!";
-    }
+        //speak method
+        this.speak = function () {
+            return "Hello, my name is " + this.name + "!";
+        }
 
-    //multiply 2 numbers method
-    this.multiplyNums = function(num1, num2) {
-      return num1 * num2;
+        //multiply 2 numbers method
+        this.multiplyNums = function (num1, num2) {
+            return num1 * num2;
+        }
     }
-  }
 }
 
 //defines the string information that must be converted into individual intern objects
@@ -39,14 +39,14 @@ const arrayEntries = stringEntries.split(" ");
 let interns = [];
 
 //loops over arrayEntries to define each intern as an array of strings, 1 string per intern property; as a result, arrayEntries becomes an array of arrays
-for(let j = 0; j < arrayEntries.length; j++) {
-  arrayEntries[j] =  arrayEntries[j].split(",");
+for (let j = 0; j < arrayEntries.length; j++) {
+    arrayEntries[j] = arrayEntries[j].split(",");
 }
 
 //loops over arrayEntries to create one new Intern object for each top-level array within arrayEntries;
 // adds each such object to interns, so that each intern can now be identified by its position within the interns array
 for (let i = 0; i < arrayEntries.length; i++) {
-  interns.push(new Intern(arrayEntries[i][0], arrayEntries[i][2], arrayEntries[i][1], arrayEntries[i][3]));
+    interns.push(new Intern(arrayEntries[i][0], arrayEntries[i][2], arrayEntries[i][1], arrayEntries[i][3]));
 }
 
 
@@ -71,11 +71,10 @@ console.log(interns[4].gender);
 console.log(interns[1].speak());
 
 
-
 // Antonietta loves math, give her the ability to multiply two numbers together and return the product. Use the console.log provided as a hint.
 //console.log(antonietta.multiplyNums(3,4));
 
-console.log(interns[4].multiplyNums(3,4));
+console.log(interns[4].multiplyNums(3, 4));
 
 // === Great work! === Head over to the the arrays.js file or take a look at the stretch challenge
 
@@ -86,16 +85,31 @@ console.log(interns[4].multiplyNums(3,4));
 // 3. Nest a grandchild object in the child object with properties for name and age.  The name will be Sam and the age will be 30
 // 4. Give each of the objects the ability to speak their names using the this keyword.
 
-const parent = {}
+class Family {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
 
+
+        //speak method
+        this.speak = function () {
+            return "Hello, my name is " + this.name + "!";
+        }
+    }
+}
+
+const parent = new Family("Susan", 70);
+const child = new Family("George", 50);
+const grandchild = new Family("Sam", 30);
 // Log the parent object's name
-
+console.log(parent.name);
 // Log the child's age
-
+console.log(child.name);
 // Log the name and age of the grandchild
-
+console.log(grandchild.name);
 // Have the parent speak
-
+console.log(parent.speak());
 // Have the child speak
-
+console.log(child.speak());
 // Have the grandchild speak
+console.log(grandchild.speak());

@@ -11,7 +11,7 @@
 
 // Example format of an intern object: 1,examples@you.edu,Example,F
 
-//Intern class contructor
+//Intern class constructor
 class Intern {
     constructor(id, name, email, gender) {
         this.id = id;

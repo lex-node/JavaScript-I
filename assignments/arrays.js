@@ -115,7 +115,7 @@ console.log(oldCars.length);
 // Once you have populated the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
 let BMWAndAudi = [];
 for (let i = 0; i < inventory.length; i++) {
-    if (inventory[i].car_make === "BMw" || inventory[i].car_make === "Audi") {
+    if (inventory[i].car_make === "BMW" || inventory[i].car_make === "Audi") {
         BMWAndAudi.push(inventory[i]);
     }
 }

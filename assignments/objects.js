@@ -10,35 +10,71 @@
 // 5,adaine5@samsung.com,Antonietta,F
 
 // Example format of an intern object: 1,examples@you.edu,Example,F
-const example = {
-  "id": 0,
-  "name": "Example",
-  "email": "examples@you.edu",
-  "gender": "F"
+
+//Intern class constructor
+class Intern {
+    constructor(id, name, email, gender) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.gender = gender;
+
+        //speak method
+        this.speak = function () {
+            return "Hello, my name is " + this.name + "!";
+        }
+
+        //multiply 2 numbers method
+        this.multiplyNums = function (num1, num2) {
+            return num1 * num2;
+        }
+    }
 }
 
-// Write your intern objects here:
+//defines the string information that must be converted into individual intern objects
+const stringEntries = "1,mmelloy0@psu.edu,Mitzi,F 2,kdiben1@tinypic.com,Kennan,M 3,kmummery2@wikimedia.org,Keven,M 4,gmartinson3@illinois.edu,Gannie,M 5,adaine5@samsung.com,Antonietta,F";
+//splits the string into an array of strings
+const arrayEntries = stringEntries.split(" ");
+//defines interns as an empty array that will hold each intern object
+let interns = [];
+
+//loops over arrayEntries to define each intern as an array of strings, 1 string per intern property; as a result, arrayEntries becomes an array of arrays
+for (let j = 0; j < arrayEntries.length; j++) {
+    arrayEntries[j] = arrayEntries[j].split(",");
+}
+
+//loops over arrayEntries to create one new Intern object for each top-level array within arrayEntries;
+// adds each such object to interns, so that each intern can now be identified by its position within the interns array
+for (let i = 0; i < arrayEntries.length; i++) {
+    interns.push(new Intern(arrayEntries[i][0], arrayEntries[i][2], arrayEntries[i][1], arrayEntries[i][3]));
+}
 
 
 // ==== Challenge 2: Reading Object Data ==== 
 // Once your objects are created, log out the following requests from HR into the console:
 
 // Mitzi's name
-
+console.log(interns[0].name);
 // Kennan's ID
-
+console.log(interns[1].id);
 // Keven's email
-
+console.log(interns[2].email);
 // Gannie's name
-
+console.log(interns[3].name);
 // Antonietta's Gender
+console.log(interns[4].gender);
 
 // ==== Challenge 3: Object Methods ==== 
 // Give Kennan the ability to say "Hello, my name is Kennan!" Use the console.log provided as a hint.
 // console.log(kennan.speak());
 
+console.log(interns[1].speak());
+
+
 // Antonietta loves math, give her the ability to multiply two numbers together and return the product. Use the console.log provided as a hint.
 //console.log(antonietta.multiplyNums(3,4));
+
+console.log(interns[4].multiplyNums(3, 4));
 
 // === Great work! === Head over to the the arrays.js file or take a look at the stretch challenge
 
@@ -49,16 +85,31 @@ const example = {
 // 3. Nest a grandchild object in the child object with properties for name and age.  The name will be Sam and the age will be 30
 // 4. Give each of the objects the ability to speak their names using the this keyword.
 
-const parent = {}
+class Family {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
 
+
+        //speak method
+        this.speak = function () {
+            return "Hello, my name is " + this.name + "!";
+        }
+    }
+}
+
+const parent = new Family("Susan", 70);
+const child = new Family("George", 50);
+const grandchild = new Family("Sam", 30);
 // Log the parent object's name
-
+console.log(parent.name);
 // Log the child's age
-
+console.log(child.name);
 // Log the name and age of the grandchild
-
+console.log(grandchild.name);
 // Have the parent speak
-
+console.log(parent.speak());
 // Have the child speak
-
+console.log(child.speak());
 // Have the grandchild speak
+console.log(grandchild.speak());
